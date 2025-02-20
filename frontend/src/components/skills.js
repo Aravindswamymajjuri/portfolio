@@ -1,98 +1,152 @@
-// Skills.js
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Code2, Palette, Server, Brain } from 'lucide-react';
 import './skills.css';
 
-const Skills = () => {
-  const skillsRef = useRef(null);
+const skills = [
+  {
+    category: "Frontend Development",
+    icon: Code2,
+    items: ["React", "JavaScript", "HTML", "CSS"]
+  },
+  {
+    category: "Backend Development",
+    icon: Server,
+    items: ["Node.js", "Python", "MongoDB", "PostgreSQL"]
+  },
+  {
+    category: "Machine Learning",
+    icon: Brain,
+    items: ["Python", "Pandas", "NumPy", "Scikit-learn"]
+  },
+  {
+    category: "UI/UX Design",
+    icon: Palette,
+    items: ["Figma", "Prototyping", "User Research"]
+  }
+];
 
-  const skills = [
-    {
-      category: 'Frontend',
-      skills: [
-        { name: 'React', level: 90 },
-        { name: 'JavaScript', level: 85 },
-        { name: 'CSS/SASS', level: 80 },
-        { name: 'Vue.js', level: 75 }
-      ]
-    },
-    {
-      category: 'Backend',
-      skills: [
-        { name: 'Node.js', level: 85 },
-        { name: 'Python', level: 80 },
-        { name: 'Java', level: 70 },
-        { name: 'PHP', level: 65 }
-      ]
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3
     }
-  ];
+  }
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6 }
+  },
+  hover: {
+    y: -10,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 300
+    }
+  }
+};
 
-    const skillBars = document.querySelectorAll('.skill-progress');
-    skillBars.forEach((bar) => observer.observe(bar));
+const iconVariants = {
+  hidden: { scale: 0 },
+  visible: {
+    scale: 1,
+    transition: { 
+      type: "spring",
+      stiffness: 200,
+      damping: 10
+    }
+  },
+  hover: {
+    scale: 1.2,
+    transition: { duration: 0.3 }
+  }
+};
 
-    return () => observer.disconnect();
-  }, []);
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.3 }
+  }
+};
+
+export default function Skills() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1
+  });
 
   return (
-    <section id="skills" className="skills-section" ref={skillsRef}>
+    <section className="skills-section" id="skills">
       <div className="skills-container">
-        <h2 className="section-title">My Skills</h2>
-        
-        <div className="skills-content">
-          {skills.map((category, index) => (
-            <div key={index} className="skill-category">
-              <h3 className="category-title">{category.category}</h3>
-              <div className="skills-grid">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="skill-item">
-                    <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-percentage">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <div 
-                        className="skill-progress"
-                        style={{ '--progress': `${skill.level}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        <motion.h2 
+          className="skills-title"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Skills & Expertise
+        </motion.h2>
 
-        <div className="skills-cards">
-          <div className="skill-card" data-aos="fade-up">
-            <i className="fas fa-laptop-code"></i>
-            <h4>Web Development</h4>
-            <p>Building responsive and performant web applications</p>
-          </div>
-          <div className="skill-card" data-aos="fade-up" data-aos-delay="100">
-            <i className="fas fa-mobile-alt"></i>
-            <h4>Mobile Development</h4>
-            <p>Creating cross-platform mobile applications</p>
-          </div>
-          <div className="skill-card" data-aos="fade-up" data-aos-delay="200">
-            <i className="fas fa-database"></i>
-            <h4>Database Design</h4>
-            <p>Designing efficient database structures</p>
-          </div>
-        </div>
+        <motion.div 
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="skills-grid"
+        >
+          {skills.map((skill, index) => (
+            <motion.div
+              key={index}
+              variants={cardVariants}
+              whileHover="hover"
+              className="skill-card"
+            >
+              <motion.div 
+                className="skill-header"
+                variants={itemVariants}
+              >
+                <motion.div
+                  className="skill-icon-container"
+                  variants={iconVariants}
+                  whileHover="hover"
+                >
+                  <skill.icon className="skill-icon" />
+                </motion.div>
+                <h3 className="skill-category">{skill.category}</h3>
+              </motion.div>
+              
+              <motion.ul className="skill-list">
+                {skill.items.map((item, itemIndex) => (
+                  <motion.li
+                    key={itemIndex}
+                    variants={itemVariants}
+                    className="skill-item"
+                    whileHover={{ x: 10, color: "var(--highlight-color)" }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.span 
+                      className="skill-bullet"
+                      whileHover={{ scale: 1.5 }}
+                    />
+                    {item}
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default Skills;
+}
