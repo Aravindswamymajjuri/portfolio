@@ -158,6 +158,8 @@ body.light-mode {
   gap: 0.5rem;
 }
 
+
+
 .skill-item {
   color: var(--secondary-text);
   display: flex;
