@@ -1,185 +1,412 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.light {
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-body.dark {
-  background-color: #1a1a1a;
-  color: #fff;
-}
-
+/* Base styles */
 .contact-section {
-  padding: 20px;
+  padding: 80px 0;
+  transition: all 0.3s ease;
 }
 
-.contact-container {
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+  padding: 0 20px;
 }
 
 .contact-title {
-  font-size: 28px;
-  margin-bottom: 10px;
   text-align: center;
-  width: 100%;
+  margin-bottom: 50px;
+  font-size: 2.5rem;
+  transition: color 0.3s ease;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+}
+
+/* Contact information styles */
+.contact-info-container {
+  padding: 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-info-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .contact-info {
-  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
   gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
-.info-items {
+.contact-icon {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
-.info-item {
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Form styles */
+.contact-form {
+  padding: 30px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Reset default input styles - note the higher specificity */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Fixed button selector - was missing the period before */
+.contact-button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Thank you overlay */
+.thank-you-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.thank-you-box {
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+  max-width: 90%;
+  width: 400px;
+}
+
+/* Light mode styles */
+.contact-section.light-mode {
+  color: #333;
+}
+
+.light-mode .contact-title {
+  color: #222;
+}
+
+.light-mode .contact-info-container {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .contact-info-title {
+  color: #333;
+}
+
+.light-mode .contact-item {
+  background-color: #f5f5f5;
+}
+
+.light-mode .contact-icon {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+.light-mode .contact-form {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode label {
+  color: #444;
+}
+
+/* Higher specificity for light inputs - UPDATED BACKGROUND COLOR */
+.contact-form .light-input,
+.form-field .light-input,
+input.light-input,
+textarea.light-input {
+  background-color: #fff !important;
+  color: #333 !important;
+  border: 1px solid #e0e0e0 !important;
+}
+
+.contact-form .light-input::placeholder,
+.form-field .light-input::placeholder {
+  color: #999;
+}
+
+.contact-form .light-input:focus,
+.form-field .light-input:focus {
+  border-color: #4a90e2 !important;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2) !important;
+  outline: none !important;
+}
+
+.light-contact-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.light-contact-button:hover {
+  background-color: #2980b9;
+}
+
+.light-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.light-box {
+  background-color: #fff;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.light-box h3 {
+  color: #333;
+}
+
+.light-box p {
+  color: #666;
+}
+
+/* Dark mode styles */
+.contact-section.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.dark-mode .contact-title {
+  color: #f0f0f0;
+}
+
+.dark-mode .contact-info-container {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .contact-info-title {
+  color: #e0e0e0;
+}
+
+.dark-mode .contact-item {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.dark-mode .contact-icon {
+  background-color: #333;
+  color: #ddd;
+}
+
+.dark-mode .contact-form {
+  background-color: #1e1e1e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode label {
+  color: #ddd;
+}
+
+/* Higher specificity for dark inputs - UPDATED BACKGROUND COLOR */
+.contact-form .dark-input,
+.form-field .dark-input,
+input.dark-input,
+textarea.dark-input {
+  background-color: #333 !important;
+  color: #f0f0f0 !important;
+  border: 1px solid #444 !important;
+}
+
+.contact-form .dark-input::placeholder,
+.form-field .dark-input::placeholder {
+  color: #aaa;
+}
+
+.contact-form .dark-input:focus,
+.form-field .dark-input:focus {
+  border-color: #3498db !important;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3) !important;
+  outline: none !important;
+}
+
+.dark-contact-button {
+  background-color: #3498db;
+  color: #f0f0f0;
+}
+
+.dark-contact-button:hover {
+  background-color: #2980b9;
+}
+
+.dark-overlay {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.dark-box {
+  background-color: #1e1e1e;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dark-box h3 {
+  color: #f0f0f0;
+}
+
+.dark-box p {
+  color: #ddd;
+}
+
+/* Contact link styling */
+.contact-link {
   display: flex;
   align-items: center;
   text-decoration: none;
   color: inherit;
-}
-
-.info-icon {
-  margin-right: 10px;
-  color: #007bff;
-  font-size: 18px;
-}
-
-.contact-form {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.form-group {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.input-icon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  color: #007bff;
-  font-size: 18px;
-  pointer-events: none;
-}
-
-.animated-input {
+  transition: transform 0.2s ease;
   width: 100%;
-  padding: 30px 15px 10px 40px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box;
 }
 
-.animated-input:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
-  outline: none;
+.contact-link:hover {
+  transform: translateX(5px);
 }
 
-textarea.animated-input {
-  height: 120px;
-  resize: none;
+.light-mode .contact-link:hover {
+  color: #4a90e2;
 }
 
-textarea.animated-input::placeholder {
-  vertical-align: top;
+.dark-mode .contact-link:hover {
+  color: #6ba5e7;
 }
 
-.error-message {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #e74c3c;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.submit-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  align-self: flex-start;
-}
-
-.submit-button:hover {
-  background-color: #0056b3;
-}
-
-.submit-button.submitting {
-  background-color: #6c757d;
-  cursor: not-allowed;
-}
-
-/* Toggle Button */
-.toggle-button {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
+/* Enhanced responsive styles */
+@media (max-width: 1024px) {
+  .contact-grid {
+    gap: 30px;
   }
-
+  
   .contact-title {
-    font-size: 24px;
+    font-size: 2.2rem;
+    margin-bottom: 40px;
   }
+}
 
-  .animated-input {
-    font-size: 14px;
-    padding: 8px 10px 8px 36px;
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
+  
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .contact-section {
+    padding: 60px 0;
+  }
+}
 
-  .input-icon {
-    font-size: 16px;
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
   }
+  
+  .contact-info-container,
+  .contact-form {
+    padding: 20px;
+  }
+  
+  .contact-section {
+    padding: 40px 0;
+  }
+  
+  .contact-item {
+    padding: 12px;
+  }
+  
+  .contact-icon {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    padding: 10px;
+  }
+}
 
-  .submit-button {
-    font-size: 14px;
-    padding: 8px 16px;
-  }
+/* Light mode input change */
+.contact-form .light-input,
+.form-field .light-input,
+input.light-input,
+textarea.light-input {
+  background-color: #fff !important;
+  /* rest of the styles */
+}
+
+/* Dark mode input change */
+.contact-form .dark-input,
+.form-field .dark-input,
+input.dark-input,
+textarea.dark-input {
+  background-color: #333 !important;
+  /* rest of the styles */
 }
