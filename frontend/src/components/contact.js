@@ -1,222 +1,200 @@
-import React, { useState } from 'react';
-import { Send, User, Mail, MessageSquare, Phone, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './contact.css';
+import React, { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { Mail, MapPin, Phone } from "lucide-react";
+import emailjs from "emailjs-com";
+import "./contact.css"; // Import custom CSS
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.3 } }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+};
+
+const formVariants = {
+  hidden: { opacity: 0, x: 20 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5 } }
+};
+
+// Style constants to ensure consistency
+const DARK_INPUT_STYLE = { 
+  backgroundColor: '#333', 
+  color: '#f0f0f0', 
+  border: '1px solid #444' 
+};
+
+const LIGHT_INPUT_STYLE = { 
+  backgroundColor: '#fff', 
+  color: '#333', 
+  border: '1px solid #e0e0e0' 
+};
 
 const Contact = ({ darkMode }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [showThankYou, setShowThankYou] = useState(false);
+  const [renderKey, setRenderKey] = useState(0); // Force re-render when theme changes
+  const formRef = useRef(null);
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+  // Update form elements when darkMode changes
+  useEffect(() => {
+    // Force re-render when darkMode changes
+    setRenderKey(prev => prev + 1);
+    
+    // Directly manipulate DOM as a fallback strategy
+    if (formRef.current) {
+      const inputs = formRef.current.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        // Remove both theme classes
+        input.classList.remove('dark-input', 'light-input');
+        // Add the correct one
+        input.classList.add(darkMode ? 'dark-input' : 'light-input');
+        
+        // Apply inline styles as a backup
+        if (darkMode) {
+          Object.assign(input.style, DARK_INPUT_STYLE);
+        } else {
+          Object.assign(input.style, LIGHT_INPUT_STYLE);
+        }
+      });
     }
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone is required';
-    } else if (!/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
-      newErrors.phone = 'Invalid phone number';
-    }
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
-    return newErrors;
-  };
+  }, [darkMode]);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newErrors = validateForm();
+    const templateParams = { name, email, message };
 
-    if (Object.keys(newErrors).length === 0) {
-      setIsSubmitting(true);
-
-      try {
-        const response = await fetch('http://localhost:5000/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          setSubmitted(true);
-          setFormData({ name: '', email: '', phone: '', message: '' });
-          toast.success('Message sent successfully!');
-        } else {
-          toast.error('Failed to send message. Please try again later.');
-        }
-      } catch (error) {
-        console.error('Error sending message:', error);
-        toast.error('Failed to send message. Please try again later.');
-      } finally {
-        setIsSubmitting(false);
-      }
-    } else {
-      setErrors(newErrors);
-      toast.error('Please correct the errors in the form.');
-    }
+    emailjs
+      .send("service_come8lh", "template_x2k0qja", templateParams, "neVplf6b15Pacpgs-")
+      .then(() => {
+        setShowThankYou(true);
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
+      .catch((error) => console.error("Failed to send email:", error));
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
+  // Contact info with links
   const contactInfo = [
-    {
-      icon: <Phone size={24} />,
-      title: "Phone",
-      content: "+91 9492113371",
-      link: "tel:+91 9492113371"
+    { 
+      Icon: Mail, 
+      text: "prudhviankamreddi1@gmail.com", 
+      link: "mailto:prudhviankamreddi1@gmail.com",
+      ariaLabel: "Send email"
     },
-    {
-      icon: <Mail size={24} />,
-      title: "Email",
-      content: "aravindswamymajjuri143@gmail.com",
-      link: "mailto:aravindswamymajjuri143@gmail.com"
+    { 
+      Icon: Phone, 
+      text: "+91 6305845312", 
+      link: "tel:+916305845312",
+      ariaLabel: "Call phone number" 
     },
-    {
-      icon: <MapPin size={24} />,
-      title: "Location",
-      content: "4-137 Yerravaram, Andhra Pradesh, India",
-      link: "https://maps.google.com/?q=123+Business+Street+New+York+NY+10001"
+    { 
+      Icon: MapPin, 
+      text: "Anakapalli, Andhra Pradesh, India", 
+      link: "https://maps.google.com/?q=Anakapalli,Andhra+Pradesh,India",
+      ariaLabel: "View on Google Maps"
     }
   ];
 
-  return (
-    <section className={`contact-section ${darkMode ? 'dark' : 'light'}`}>
-      <ToastContainer />
-      <div className="contact-container">
-        <div className="contact-grid">
-          {/* Contact Information */}
-          <div className="contact-info">
-            <h2 className="info-title">Contact Information</h2>
-            <p className="info-subtitle">Get in touch with us</p>
+  // Get current theme styles
+  const inputStyle = darkMode ? DARK_INPUT_STYLE : LIGHT_INPUT_STYLE;
 
-            <div className="info-items">
-              {contactInfo.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.link}
-                  className="info-item"
-                  target={item.title === "Location" ? "_blank" : undefined}
-                  rel={item.title === "Location" ? "noopener noreferrer" : undefined}
-                >
-                  <div className="info-icon">{item.icon}</div>
-                  <div className="info-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.content}</p>
-                  </div>
-                </a>
+  return (
+    <section className={`contact-section ${darkMode ? 'dark-mode' : 'light-mode'}`} id="contact">
+      <div className="container">
+        <motion.h2 className="contact-title" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+          Get In Touch
+        </motion.h2>
+
+        <div className="contact-grid">
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="contact-info-container">
+            <motion.h3 variants={itemVariants} className="contact-info-title">Contact Information</motion.h3>
+            <div className="contact-info">
+              {contactInfo.map(({ Icon, text, link, ariaLabel }, index) => (
+                <motion.div key={index} variants={itemVariants} className="contact-item">
+                  <a 
+                    href={link} 
+                    className="contact-link"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={ariaLabel}
+                  >
+                    <motion.div className="contact-icon">
+                      <Icon className="icon" />
+                    </motion.div>
+                    <span>{text}</span>
+                  </a>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          {/* Contact Form */}
-          <div className={`contact-form-container ${darkMode ? 'dark' : 'light'}`}>
-            <h2 className="form-title">Send us a message</h2>
+          <motion.form 
+            key={`form-${renderKey}`}
+            ref={formRef}
+            onSubmit={handleSubmit} 
+            variants={formVariants} 
+            initial="hidden" 
+            animate="visible" 
+            className="contact-form"
+          >
+            {[
+              { label: "Name", type: "text", value: name, onChange: setName }, 
+              { label: "Email", type: "email", value: email, onChange: setEmail }
+            ].map(({ label, type, value, onChange }, index) => (
+              <motion.div key={`field-${index}-${darkMode ? 'dark' : 'light'}`} variants={itemVariants} className="form-field">
+                <label>{label}</label>
+                <input 
+                  type={type} 
+                  value={value} 
+                  onChange={(e) => onChange(e.target.value)} 
+                  placeholder={`Your ${label.toLowerCase()}`}
+                  className={`form-input ${darkMode ? 'dark-input' : 'light-input'}`}
+                  style={inputStyle}
+                />
+              </motion.div>
+            ))}
 
-            <form className="contact-form" onSubmit={handleSubmit}>
-              {/* Form Fields */}
-              <div className="form-group">
-                <div className="input-icon">
-                  <User size={20} />
-                </div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className={`animated-input ${errors.name ? 'error' : ''}`}
-                />
-                {errors.name && (
-                  <span className="error-message">
-                    <AlertCircle size={16} /> {errors.name}
-                  </span>
-                )}
-              </div>
-              <div className="form-group">
-                <div className="input-icon">
-                  <Mail size={20} />
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className={`animated-input ${errors.email ? 'error' : ''}`}
-                />
-                {errors.email && (
-                  <span className="error-message">
-                    <AlertCircle size={16} /> {errors.email}
-                  </span>
-                )}
-              </div>
+            <motion.div variants={itemVariants} className="form-field">
+              <label>Message</label>
+              <textarea 
+                value={message} 
+                onChange={(e) => setMessage(e.target.value)} 
+                placeholder="Your message"
+                className={`form-textarea ${darkMode ? 'dark-input' : 'light-input'}`}
+                style={inputStyle}
+              ></textarea>
+            </motion.div>
 
-              <div className="form-group">
-                <div className="input-icon">
-                  <Phone size={20} />
-                </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Your Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={`animated-input ${errors.phone ? 'error' : ''}`}
-                />
-                {errors.phone && (
-                  <span className="error-message">
-                    <AlertCircle size={16} /> {errors.phone}
-                  </span>
-                )}
-              </div>
-
-              <div className="form-group">
-                <div className="input-icon">
-                  <MessageSquare size={20} />
-                </div>
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={`animated-input ${errors.message ? 'error' : ''}`}
-                />
-                {errors.message && (
-                  <span className="error-message">
-                    <AlertCircle size={16} /> {errors.message}
-                  </span>
-                )}
-              </div>
-              <button
-                type="submit"
-                className={`submit-button ${isSubmitting ? 'submitting' : ''}`}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Submitting...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
+            <motion.button 
+              type="submit" 
+              whileHover={{ scale: 1.02 }} 
+              whileTap={{ scale: 0.98 }}
+              className={`contact-button ${darkMode ? 'dark-contact-button' : 'light-contact-button'}`}
+            >
+              Send Message
+            </motion.button>
+          </motion.form>
         </div>
+
+        {showThankYou && (
+          <div className={`thank-you-overlay ${darkMode ? 'dark-overlay' : 'light-overlay'}`}>
+            <div className={`thank-you-box ${darkMode ? 'dark-box' : 'light-box'}`}>
+              <motion.h3 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                Thank you for contacting me!
+              </motion.h3>
+              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+                I'll get back to you as soon as possible.
+              </motion.p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
