@@ -45,23 +45,29 @@ const Contact = ({ darkMode }) => {
     // Force re-render when darkMode changes
     setRenderKey(prev => prev + 1);
     
-    // Directly manipulate DOM as a fallback strategy
-    if (formRef.current) {
-      const inputs = formRef.current.querySelectorAll('input, textarea');
-      inputs.forEach(input => {
-        // Remove both theme classes
-        input.classList.remove('dark-input', 'light-input');
-        // Add the correct one
-        input.classList.add(darkMode ? 'dark-input' : 'light-input');
-        
-        // Apply inline styles as a backup
-        if (darkMode) {
-          Object.assign(input.style, DARK_INPUT_STYLE);
-        } else {
-          Object.assign(input.style, LIGHT_INPUT_STYLE);
-        }
-      });
-    }
+    // Use a slight delay to ensure DOM is updated
+    setTimeout(() => {
+      if (formRef.current) {
+        const inputs = formRef.current.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+          // Remove both theme classes first
+          input.classList.remove('dark-input', 'light-input');
+          // Add the correct one
+          input.classList.add(darkMode ? 'dark-input' : 'light-input');
+          
+          // Explicitly set the background color as inline style
+          if (darkMode) {
+            input.style.backgroundColor = '#333';
+            input.style.color = '#f0f0f0';
+            input.style.border = '1px solid #444';
+          } else {
+            input.style.backgroundColor = '#fff';
+            input.style.color = '#333';
+            input.style.border = '1px solid #e0e0e0';
+          }
+        });
+      }
+    }, 50); // Small delay to ensure DOM update
   }, [darkMode]);
 
   const handleSubmit = (e) => {
@@ -156,7 +162,11 @@ const Contact = ({ darkMode }) => {
                   onChange={(e) => onChange(e.target.value)} 
                   placeholder={`Your ${label.toLowerCase()}`}
                   className={`form-input ${darkMode ? 'dark-input' : 'light-input'}`}
-                  style={inputStyle}
+                  style={{
+                    backgroundColor: darkMode ? '#333' : '#fff',
+                    color: darkMode ? '#f0f0f0' : '#333',
+                    border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
+                  }}
                 />
               </motion.div>
             ))}
@@ -168,7 +178,11 @@ const Contact = ({ darkMode }) => {
                 onChange={(e) => setMessage(e.target.value)} 
                 placeholder="Your message"
                 className={`form-textarea ${darkMode ? 'dark-input' : 'light-input'}`}
-                style={inputStyle}
+                style={{
+                  backgroundColor: darkMode ? '#333' : '#fff',
+                  color: darkMode ? '#f0f0f0' : '#333',
+                  border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
+                }}
               ></textarea>
             </motion.div>
 
