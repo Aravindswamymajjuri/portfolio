@@ -1,3 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Base styles */
 .contact-section {
   padding: 80px 0;
@@ -71,6 +77,7 @@
   padding: 30px;
   border-radius: 10px;
   transition: all 0.3s ease;
+  
 }
 
 .form-field {
@@ -179,7 +186,7 @@ textarea {
   color: #444;
 }
 
-/* Higher specificity for light inputs - UPDATED BACKGROUND COLOR */
+/* Higher specificity for light inputs */
 .contact-form .light-input,
 .form-field .light-input,
 input.light-input,
@@ -265,7 +272,7 @@ textarea.light-input {
   color: #ddd;
 }
 
-/* Higher specificity for dark inputs - UPDATED BACKGROUND COLOR */
+/* Higher specificity for dark inputs */
 .contact-form .dark-input,
 .form-field .dark-input,
 input.dark-input,
@@ -393,20 +400,6 @@ textarea.dark-input {
   }
 }
 
-/* Light mode input change */
-.contact-form .light-input,
-.form-field .light-input,
-input.light-input,
-textarea.light-input {
-  background-color: #fff !important;
-  /* rest of the styles */
-}
 
-/* Dark mode input change */
-.contact-form .dark-input,
-.form-field .dark-input,
-input.dark-input,
-textarea.dark-input {
-  background-color: #333 !important;
-  /* rest of the styles */
-}
+
+
