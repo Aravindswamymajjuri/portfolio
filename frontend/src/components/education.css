@@ -96,10 +96,40 @@
   }
   
   /* Responsive Styles */
+  @media (max-width: 1024px) {
+    .education-cards {
+      gap: 1rem;
+    }
+    .education-card {
+      width: 250px;
+      padding: 1rem;
+    }
+  }
+  
   @media (max-width: 768px) {
     .education-cards {
       flex-direction: column;
       align-items: center;
+      gap: 1rem;
+    }
+    .education-card {
+      width: 90%;
+      min-width: 180px;
+      padding: 0.8rem;
+    }
+    .education-title {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
     }
   }
   
+  @media (max-width: 480px) {
+    .education-container {
+      padding: 1rem 0.2rem;
+    }
+    .education-card {
+      width: 100%;
+      min-width: 120px;
+      padding: 0.5rem;
+    }
+  }

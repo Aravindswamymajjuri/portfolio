@@ -14,20 +14,20 @@ const Education = ({ darkMode }) => {
       title: "Intermediate",
       institution: "Pragati Junior College",
       duration: "2020 - 2022",
-      description: "I completed my Intermediate at Pragati Junior College in the group of MPC.",
+      description: "I completed my Intermediate at Pragati Junior College in the group of MPC.with a 90.4%",
       icon: "🎖",
     },
     {
       title: "High School",
       institution: "Sri Surya E.M High School",
       duration: "2007 - 2020",
-      description: "I completed my Schooling at Sri Surya E.M High School.",
+      description: "I completed my Schooling at Sri Surya E.M High School.with a 99.3%",
       icon: "📚",
     },
   ];
 
   return (
-    <div className={darkMode ? 'education-container dark-mode' : 'education-container light-mode'}>
+    <div className={darkMode ? 'education-container dark-mode' : 'education-container light-mode'} id='education'>
       <h2 className="education-title">Education & Certifications</h2>
       <div className="education-cards">
         {educationData.map((edu, index) => (
