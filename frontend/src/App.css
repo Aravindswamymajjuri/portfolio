@@ -1,5 +1,3 @@
-
-
 /* App.css */
 :root {
   --primary-color: #007bff;
@@ -27,12 +25,48 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
+.app {
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  /* Responsive padding for main app container */
+  padding: 0;
+  margin: 0;
+}
 
+/* Responsive section container utility */
+.section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
 
-
-
-
-
+/* Responsive adjustments for all sections */
+@media (max-width: 1200px) {
+  .section-container {
+    max-width: 1000px;
+  }
+}
+@media (max-width: 1024px) {
+  .section-container {
+    max-width: 800px;
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 768px) {
+  .section-container {
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+  .app {
+    padding: 0;
+  }
+}
+@media (max-width: 480px) {
+  .section-container {
+    padding: 0 0.25rem;
+  }
+}
 
 /* Animations */
 .animate-fade-in {
