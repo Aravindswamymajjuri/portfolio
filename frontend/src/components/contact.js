@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone } from "lucide-react";
 import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'; // Add this import
 import "./contact.css"; // Import custom CSS
 
 const containerVariants = {
@@ -36,7 +38,7 @@ const Contact = ({ darkMode }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [showThankYou, setShowThankYou] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [renderKey, setRenderKey] = useState(0); // Force re-render when theme changes
   const formRef = useRef(null);
 
@@ -70,40 +72,99 @@ const Contact = ({ darkMode }) => {
     }, 50); // Small delay to ensure DOM update
   }, [darkMode]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Basic validation
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      toast.error("Please fill in all fields", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: darkMode ? "dark" : "light",
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    
+    // Show loading toast
+    const loadingToast = toast.loading("Sending message...", {
+      position: "top-right",
+      theme: darkMode ? "dark" : "light",
+    });
 
     const templateParams = { name, email, message };
 
-    emailjs
-      .send("service_come8lh", "template_x2k0qja", templateParams, "neVplf6b15Pacpgs-")
-      .then(() => {
-        setShowThankYou(true);
-        setName("");
-        setEmail("");
-        setMessage("");
-      })
-      .catch((error) => console.error("Failed to send email:", error));
+    try {
+      await emailjs.send(
+        "Aravind_123", 
+        "template_nlkm7ki", 
+        templateParams, 
+        "Cz9Kl_YW7MdaMFjMt"
+      );
+
+      // Dismiss loading toast
+      toast.dismiss(loadingToast);
+      
+      // Show success toast
+      toast.success("Message sent successfully! I'll get back to you soon.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: darkMode ? "dark" : "light",
+      });
+
+      // Clear form
+      setName("");
+      setEmail("");
+      setMessage("");
+      
+    } catch (error) {
+      console.error("Failed to send email:", error);
+      
+      // Dismiss loading toast
+      toast.dismiss(loadingToast);
+      
+      // Show error toast
+      toast.error("Failed to send message. Please try again or contact me directly.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        theme: darkMode ? "dark" : "light",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   // Contact info with links
   const contactInfo = [
     { 
       Icon: Mail, 
-      text: "prudhviankamreddi1@gmail.com", 
-      link: "mailto:prudhviankamreddi1@gmail.com",
+      text: "aravindswamymajjuri143@gmail.com", 
+      link: "mailto:aravindswamymajjuri143@gmail.com",
       ariaLabel: "Send email"
     },
     { 
       Icon: Phone, 
-      text: "+91 6305845312", 
-      link: "tel:+916305845312",
+      text: "+91 9492113371", 
+      link: "tel:+919492113371",
       ariaLabel: "Call phone number" 
     },
     { 
       Icon: MapPin, 
-      text: "Anakapalli, Andhra Pradesh, India", 
-      link: "https://maps.google.com/?q=Anakapalli,Andhra+Pradesh,India",
+      text: "kakinadaa, Andhra Pradesh, India", 
+      link: "https://maps.google.com/?q=kakinada,Andhra+Pradesh,India",
       ariaLabel: "View on Google Maps"
     }
   ];
@@ -167,6 +228,7 @@ const Contact = ({ darkMode }) => {
                     color: darkMode ? '#f0f0f0' : '#333',
                     border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
                   }}
+                  disabled={isSubmitting}
                 />
               </motion.div>
             ))}
@@ -183,32 +245,39 @@ const Contact = ({ darkMode }) => {
                   color: darkMode ? '#f0f0f0' : '#333',
                   border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
                 }}
+                disabled={isSubmitting}
               ></textarea>
             </motion.div>
 
             <motion.button 
               type="submit" 
-              whileHover={{ scale: 1.02 }} 
-              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: isSubmitting ? 1 : 1.02 }} 
+              whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
               className={`contact-button ${darkMode ? 'dark-contact-button' : 'light-contact-button'}`}
+              disabled={isSubmitting}
+              style={{
+                opacity: isSubmitting ? 0.7 : 1,
+                cursor: isSubmitting ? 'not-allowed' : 'pointer'
+              }}
             >
-              Send Message
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </motion.button>
           </motion.form>
         </div>
 
-        {showThankYou && (
-          <div className={`thank-you-overlay ${darkMode ? 'dark-overlay' : 'light-overlay'}`}>
-            <div className={`thank-you-box ${darkMode ? 'dark-box' : 'light-box'}`}>
-              <motion.h3 initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                Thank you for contacting me!
-              </motion.h3>
-              <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-                I'll get back to you as soon as possible.
-              </motion.p>
-            </div>
-          </div>
-        )}
+        {/* Add ToastContainer here */}
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme={darkMode ? "dark" : "light"}
+        />
       </div>
     </section>
   );
