@@ -133,3 +133,18 @@
       padding: 0.5rem;
     }
   }
+
+
+  @media (max-width:1023px) {
+    .education-container{
+      padding-top: 70px;
+    }
+    .education-card{
+      margin: 0px 00px 0px 5px;
+    }
+  }
+  @media (min-width:1023px) and (max-width: 2561px) {
+    .education-container{
+      padding-top: 100px;
+    }
+  }
