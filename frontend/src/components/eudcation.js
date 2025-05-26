@@ -4,11 +4,11 @@ import './education.css';
 const Education = ({ darkMode }) => {
   const educationData = [
     {
-      title: "Bachelor of Technology",
-      institution: "Kakinada Institute of Engineering and Technology",
-      duration: "2022 - 2026",
-      description: "Pursuing my Bachelor's Degree in Computer Science (Artifical Intelligence and Data Science) at Kiet group of Institutions, I'm gaining in-depth knowledge in areas like Data Science, Machine Learning, and Web Development. With a GPA of 7.9.",
-      icon: "🎓",
+      title: "High School",
+      institution: "Sri Surya E.M High School",
+      duration: "2007 - 2020",
+      description: "I completed my Schooling at Sri Surya E.M High School.with a 99.3%",
+      icon: "📚",
     },
     {
       title: "Intermediate",
@@ -18,12 +18,14 @@ const Education = ({ darkMode }) => {
       icon: "🎖",
     },
     {
-      title: "High School",
-      institution: "Sri Surya E.M High School",
-      duration: "2007 - 2020",
-      description: "I completed my Schooling at Sri Surya E.M High School.with a 99.3%",
-      icon: "📚",
+      title: "Bachelor of Technology",
+      institution: "Kakinada Institute of Engineering and Technology",
+      duration: "2022 - 2026",
+      description: "Pursuing my Bachelor's Degree in Computer Science (Artifical Intelligence and Data Science) at Kiet group of Institutions, I'm gaining in-depth knowledge in areas like Data Science, Machine Learning, and Web Development. With a GPA of 7.9.",
+      icon: "🎓",
     },
+    
+    
   ];
 
   return (
