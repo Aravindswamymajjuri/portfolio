@@ -80,14 +80,14 @@ const itemVariants = {
   }
 };
 
-export default function Skills() {
+export default function Skills({ darkMode }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
   return (
-    <section className="skills-section" id="skills">
+    <section className={`skills-section ${darkMode ? 'dark-mode' : 'light-mode'}`} id="skills">
       <div className="skills-container">
         <motion.h2 
           className="skills-title"
