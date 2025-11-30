@@ -25,13 +25,13 @@ const About = ({ darkMode }) => {
               />
               <div className="image-overlay">
                 <div className="social-links">
-                  <a href="" className="social-link">
+                  <a href="https://github.com/yourusername" className="social-link">
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="" className="social-link">
+                  <a href="https://github.com/yourusername" className="social-link">
                     <i className="fab fa-linkedin"></i>
                   </a>
-                  <a href="" className="social-link">
+                  <a href="https://github.com/yourusername" className="social-link">
                     <i className="fab fa-twitter"></i>
                   </a>
                 </div>
