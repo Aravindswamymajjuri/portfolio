@@ -2,7 +2,7 @@ import React from 'react';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import './footer.css';
 
-const Footer = () => {
+const Footer = ({ darkMode }) => {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
@@ -13,7 +13,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="footer-content">
         <div className="social-links">
           {socialLinks.map(({ Icon, href, label }) => (

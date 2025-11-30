@@ -11,7 +11,7 @@ const Hero = ({ darkMode }) => {
   ];
 
   return (
-    <div className={`hero-gradient min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+    <div className={`hero-gradient min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 ${darkMode ? 'dark-mode' : 'light-mode'}`} id='home'>
       <div className="text-center w-full max-w-4xl mx-auto">
         <h1 className="hero-title font-bold mb-4">
           Hi, I'm Aravind Swamy Majjuri
@@ -38,7 +38,7 @@ const Hero = ({ darkMode }) => {
         </div>
 
         <button className="hero-button px-8 py-3">
-          Contact Me
+          Resume Download
         </button>
       </div>
     </div>

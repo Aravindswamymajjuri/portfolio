@@ -2,7 +2,7 @@
 
 /* Gradient Background Animation */
 .hero-gradient {
-  background: linear-gradient(-45deg, #1a202c);
+  /* background: linear-gradient(-45deg, #1a202c); */
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   /* margin-top: 100px; */
@@ -12,6 +12,7 @@
   width: 100%;
   /* height: auto; */
   height: 100vh;
+  padding: 0 1rem;
 }
 
 @keyframes gradientBG {
@@ -143,27 +144,46 @@
 }
 
 /* Responsive Styles */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
-  
   .hero-subtitle {
     font-size: 1rem;
   }
-  
-  .social-icon-link {
-    padding: 6px;
+  .social-icons-container {
+    gap: 1rem;
+  }
+  .hero-button {
+    width: 120px;
+    font-size: 16px;
+    height: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 1.1rem;
   }
-  
-  .social-icon-link {
-    padding: 4px;
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .social-icons-container {
+    gap: 0.5rem;
+  }
+  .hero-button {
+    width: 100px;
+    font-size: 14px;
+    height: 36px;
   }
 }
 
@@ -174,8 +194,34 @@
   }
 }
 
+/* Set consistent background for all main components in dark mode */
+.dark-mode .hero-gradient,
+.dark-mode .about-section,
+.dark-mode .education-container,
+.dark-mode .projects-section,
+.dark-mode .skills-section,
+.dark-mode .contact-section,
+.dark-mode .footer {
+  background: #1a202c !important;
+}
 
+/* Remove any gradient or previous background in dark mode for hero */
+.dark-mode .hero-gradient {
+  background: #1a202c !important;
+  animation: none !important;
+}
 
+/* Light mode background for hero */
+.light-mode .hero-gradient {
+  background: #fff !important;
+  animation: none !important;
+}
+
+/* Dark mode background for hero */
+.dark-mode .hero-gradient {
+  background: #1a202c !important;
+  animation: none !important;
+}
 
 /* Keep your existing CSS until social icons styles */
 
@@ -211,6 +257,17 @@
 }
 
 .light-mode .social-icon-link:hover .icon-color {
+  color: #000; /* Icon changes to white */
+  transition: all 0.3s ease;
+}
+
+.dark-mode .social-icon-link:hover {
+  background-color: #fff; /* Background changes to black */
+  transform: rotate(360deg);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .social-icon-link:hover .icon-color {
   color: #000; /* Icon changes to white */
   transition: all 0.3s ease;
 }

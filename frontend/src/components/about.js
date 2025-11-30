@@ -2,7 +2,7 @@
 import React from 'react';
 import './about.css';
 
-const About = () => {
+const About = ({ darkMode }) => {
   const skills = [
     { category: 'Frontend', items: ['React', 'Vue', 'Angular', 'JavaScript'] },
     { category: 'Backend', items: ['Node.js', 'Python', 'Java', 'PHP'] },
@@ -11,7 +11,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="about-section">
+    <section id="about" className={`about-section ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="about-container">
         <h2 className="section-title">About Me</h2>
         
