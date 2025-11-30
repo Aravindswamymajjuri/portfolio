@@ -223,11 +223,7 @@ const Contact = ({ darkMode }) => {
                   onChange={(e) => onChange(e.target.value)} 
                   placeholder={`Your ${label.toLowerCase()}`}
                   className={`form-input ${darkMode ? 'dark-input' : 'light-input'}`}
-                  style={{
-                    backgroundColor: darkMode ? '#333' : '#fff',
-                    color: darkMode ? '#f0f0f0' : '#333',
-                    border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
-                  }}
+                  style={inputStyle}
                   disabled={isSubmitting}
                 />
               </motion.div>
@@ -240,11 +236,7 @@ const Contact = ({ darkMode }) => {
                 onChange={(e) => setMessage(e.target.value)} 
                 placeholder="Your message"
                 className={`form-textarea ${darkMode ? 'dark-input' : 'light-input'}`}
-                style={{
-                  backgroundColor: darkMode ? '#333' : '#fff',
-                  color: darkMode ? '#f0f0f0' : '#333',
-                  border: darkMode ? '1px solid #444' : '1px solid #e0e0e0'
-                }}
+                style={inputStyle}
                 disabled={isSubmitting}
               ></textarea>
             </motion.div>
