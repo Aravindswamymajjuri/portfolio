@@ -28,7 +28,7 @@ const ProjectCard = ({ project }) => {
   );
 };
 
-const Projects = () => {
+const Projects = ({ darkMode }) => {
   const projects = [
     {
       title: "Project 1",
@@ -67,7 +67,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="projects-section">
+    <section id="projects" className={`projects-section ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <h2>My Projects</h2>
       <div className="projects-container">
         {projects.map((project, index) => (

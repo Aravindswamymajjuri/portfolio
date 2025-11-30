@@ -242,6 +242,41 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 1rem 1rem;
+  }
+  .nav-links {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0.5rem 0.5rem;
+  }
+  .nav-logo {
+    font-size: 1.1rem;
+  }
+  .mobile-menu {
+    width: 60%;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.25rem 0.25rem;
+  }
+  .nav-logo {
+    font-size: 0.9rem;
+  }
+  .mobile-menu {
+    width: 90%;
+    padding: 0.25rem;
+  }
+}
+
 /* Scrolled State */
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.98);

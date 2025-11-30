@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './navbar.css';
 
-const Navbar = ({ darkMode, setDarkMode }) => {
+const Navbar = ({ darkMode, setDarkMode, onNavClick }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -22,15 +22,22 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     { title: 'Contact', href: '#contact' }
   ];
 
+  const handleNav = (e, href) => {
+    e.preventDefault();
+    const section = href.replace('#', '');
+    if (onNavClick) onNavClick(section);
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${darkMode ? 'dark' : ''}`}>
       <div className="nav-container">
-        <a href="#home" className="nav-logo">Aravind Swamy Majjuri</a>
+        <a href="#home" className="nav-logo" onClick={e => handleNav(e, '#home')}>Aravind Swamy Majjuri</a>
 
         {/* Desktop Navigation */}
         <div className="nav-links">
           {navLinks.map((link) => (
-            <a key={link.title} href={link.href}>{link.title}</a>
+            <a key={link.title} href={link.href} onClick={e => handleNav(e, link.href)}>{link.title}</a>
           ))}
           <button className="theme-toggle desktop-theme" onClick={() => setDarkMode(!darkMode)}>
             {darkMode ? (
@@ -75,7 +82,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
             <a 
               key={link.title} 
               href={link.href}
-              onClick={() => setIsOpen(false)}
+              onClick={e => handleNav(e, link.href)}
             >
               {link.title}
             </a>
