@@ -3,13 +3,6 @@ import React from 'react';
 import './about.css';
 
 const About = ({ darkMode }) => {
-  const skills = [
-    { category: 'Frontend', items: ['React', 'Vue', 'Angular', 'JavaScript'] },
-    { category: 'Backend', items: ['Node.js', 'Python', 'Java', 'PHP'] },
-    { category: 'Database', items: ['MongoDB', 'MySQL', 'PostgreSQL'] },
-    { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Firebase'] }
-  ];
-
   return (
     <section id="about" className={`about-section ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="about-container">
@@ -25,13 +18,31 @@ const About = ({ darkMode }) => {
               />
               <div className="image-overlay">
                 <div className="social-links">
-                  <a href="https://github.com/yourusername" className="social-link">
+                  <a 
+                    href="https://github.com/Aravindswamymajjuri" 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Profile"
+                  >
                     <i className="fab fa-github"></i>
                   </a>
-                  <a href="https://github.com/yourusername" className="social-link">
+                  <a 
+                    href="https://linkedin.com/in/yourusername" 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile"
+                  >
                     <i className="fab fa-linkedin"></i>
                   </a>
-                  <a href="https://github.com/yourusername" className="social-link">
+                  <a 
+                    href="https://twitter.com/yourusername" 
+                    className="social-link"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label="Twitter Profile"
+                  >
                     <i className="fab fa-twitter"></i>
                   </a>
                 </div>
