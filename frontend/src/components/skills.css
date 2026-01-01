@@ -122,11 +122,15 @@ body.light-mode {
 }
 
 .skill-card {
-  /* background-color: var(--card-bg); */
+  background-color: 1a202c;
   border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: var(--card-shadow);
+ 
+  box-shadow: 0 4px 15px var(--shadow-color);
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dark-mode .skill-card  {
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 .skill-card:hover {
