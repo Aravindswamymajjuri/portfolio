@@ -54,8 +54,9 @@
   }
   
   .dark-mode .education-card {
-    background-color: #2d3748; /* Dark card background */
+    background-color: #1a202c; /* Dark card background */
     color: #ffffff; /* Light text */
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
   }
   
   /* Icon Styles */
