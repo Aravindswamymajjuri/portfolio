@@ -65,9 +65,13 @@
   color: white;
   font-weight: bold;
   font-size: 20px;
-  width: 150px;
+  width: 200px;
   height: 50px;
   border: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .hero-button::before {
@@ -84,6 +88,10 @@
     transparent
   );
   transition: 0.5s;
+}
+.hero-button a{
+  text-decoration: none;
+  background-color: orange;
 }
 
 .hero-button:hover::before {

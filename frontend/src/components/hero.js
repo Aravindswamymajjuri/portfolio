@@ -2,6 +2,8 @@ import React from 'react';
 import { Github, Linkedin, Mail, Instagram } from 'lucide-react';
 import './hero.css';
 
+const RESUME_PATH = '/Aravind.pdf';
+
 const Hero = ({ darkMode }) => {
   const socialLinks = [
     { Icon: Github, href: "https://github.com/Aravindswamymajjuri", label: "GitHub" },
@@ -37,9 +39,13 @@ const Hero = ({ darkMode }) => {
           ))}
         </div>
 
-        <button className="hero-button px-8 py-3">
+        <a 
+          href={RESUME_PATH} 
+          download 
+          className="hero-button px-8 py-3"
+        >
           Resume Download
-        </button>
+        </a>
       </div>
     </div>
   );

@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/navbar';
 import Hero from './components/hero';
 import About from './components/about';
+import Experience from './components/experience';
+import Certificates from './components/certificates';
 import Projects from './components/projects';
 import Skills from './components/skills';
 import Contact from './components/contact';
@@ -16,6 +18,8 @@ const App = () => {
   const sectionRefs = {
     home: useRef(null),
     about: useRef(null),
+    experience: useRef(null),
+    certificates: useRef(null),
     education: useRef(null),
     projects: useRef(null),
     skills: useRef(null),
@@ -44,6 +48,8 @@ const App = () => {
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} onNavClick={handleNavClick} />
       <div ref={sectionRefs.home}><Hero darkMode={darkMode} /></div>
       <div ref={sectionRefs.about}><About darkMode={darkMode} /></div>
+      <div ref={sectionRefs.experience}><Experience darkMode={darkMode} /></div>
+      <div ref={sectionRefs.certificates}><Certificates darkMode={darkMode} /></div>
       <div ref={sectionRefs.education}><Education darkMode={darkMode}/></div>
       <div ref={sectionRefs.projects}><Projects darkMode={darkMode}/></div>
       <div ref={sectionRefs.skills}><Skills darkMode={darkMode}/></div>

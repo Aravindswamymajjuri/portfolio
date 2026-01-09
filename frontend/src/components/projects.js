@@ -31,39 +31,37 @@ const ProjectCard = ({ project }) => {
 const Projects = ({ darkMode }) => {
   const projects = [
     {
-      title: "Project 1",
-      description: "A full-stack web application...",
+      title: "ClassLog - AI Classroom Assistant",
+      description: "AI-powered classroom assistant using Computer Vision, NLP, and OpenCV for student engagement analysis with real-time audio processing and generative AI integration.",
       image: "/project1.jpg",
-      tags: ["React", "Node.js", "MongoDB"],
+      tags: ["Python", "OpenCV", "Flask", "Transformers", "Google AI", "Bootstrap"],
       demo: "https://demo.com",
-      github: "https://github.com"
+      github: "https://github.com/Aravindswamymajjuri"
     },
     {
-      title: "Project 2",
-      description: "A mobile-responsive website...",
+      title: "MERN Full Stack Application",
+      description: "Full-stack web application with JWT authentication, secure CRUD operations, REST APIs, and WebSocket-based real-time features built using Agile methodology.",
       image: "/project2.jpg",
-      tags: ["React", "Tailwind", "Firebase"],
+      tags: ["React", "Node.js", "MongoDB", "Express", "JWT", "WebSocket"],
       demo: "https://demo.com",
-      github: "https://github.com"
+      github: "https://github.com/Aravindswamymajjuri"
     },
     {
-      title: "Project 3",
-      description: "An e-commerce platform...",
+      title: "Sentiment Analysis ML Model",
+      description: "Machine Learning model for sentiment analysis achieving 92% accuracy using TF-IDF vectorization and RandomForest classifier with production-ready ML pipeline.",
       image: "/project3.jpg",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
+      tags: ["Python", "Scikit-learn", "TF-IDF", "RandomForest", "NLP"],
       demo: "https://demo.com",
-      github: "https://github.com"
+      github: "https://github.com/Aravindswamymajjuri"
     },
     {
-      title: "Project 3",
-      description: "An e-commerce platform...",
-      image: "/project3.jpg",
-      tags: ["Next.js", "Stripe", "PostgreSQL"],
+      title: "Portfolio Website",
+      description: "Modern, responsive portfolio website built with React featuring dark/light mode, smooth animations, and mobile-first design approach.",
+      image: "/project4.jpg",
+      tags: ["React", "CSS3", "Framer Motion", "Responsive Design"],
       demo: "https://demo.com",
-      github: "https://github.com"
+      github: "https://github.com/Aravindswamymajjuri"
     }
-   
-    // Add more projects as needed
   ];
 
   return (

@@ -20,11 +20,14 @@
   flex: 1 1 300px;
   min-width: 260px;
   max-width: 100%;
-  background-color: var(--card-background);
+  background-color: 1a202c;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 15px var(--shadow-color);
   transition: transform 0.3s ease;
+}
+.dark-mode .project-card  {
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Responsive breakpoints */
@@ -52,6 +55,13 @@
   .projects-section {
     padding: 1rem 0.25rem;
   }
+  /* #project {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
+  } */
   .project-card {
     min-width: 150px;
     padding: 0.5rem;

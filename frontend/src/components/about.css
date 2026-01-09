@@ -40,8 +40,9 @@
 
 .profile-image {
   width: 100%;
-  height: 350px;
-  object-fit: cover;
+  height: auto;
+  max-height: 350px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -79,8 +80,14 @@
 }
 
 .profile-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 20px;
   text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  color: white;
 }
 
 .profile-info h3 {
@@ -91,7 +98,7 @@
 
 .profile-info .title {
   margin-bottom: 10px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .profile-info .location {
@@ -99,6 +106,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+  opacity: 0.8;
 }
 
 /* About Text Styles */
@@ -141,6 +149,104 @@
   opacity: 0.7;
 }
 
+/* Experience Section Styles */
+.experience-section {
+  padding: 80px 0;
+  transition: all 0.3s ease;
+  
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.experiences-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.experience-item {
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.experience-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.period {
+  font-style: italic;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 15px;
+}
+
+.highlights {
+  list-style: none;
+  padding: 0;
+}
+
+.highlights li {
+  margin-bottom: 5px;
+  padding-left: 15px;
+  position: relative;
+}
+
+.highlights li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #60a5fa;
+}
+
+/* Certificates Section Styles */
+.certificates-section {
+  padding: 80px 0;
+  transition: all 0.3s ease;
+}
+
+.certificates-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.certificates-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.certificate-item {
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.certificate-item h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.issuer {
+  opacity: 0.8;
+  margin-bottom: 5px;
+}
+
+.grade {
+  font-weight: bold;
+  color: #60a5fa;
+}
+
 /* Light Mode Styles */
 .light-mode .about-section {
   background-color: #f4f4f4;
@@ -166,6 +272,34 @@
   background-color: #f9f9f9;
 }
 
+.light-mode .experience-section {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.light-mode .experience-item {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .experience-item:hover {
+  background-color: #f9f9f9;
+}
+
+.light-mode .certificates-section {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.light-mode .certificate-item {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .certificate-item:hover {
+  background-color: #f9f9f9;
+}
+
 /* Dark Mode Styles */
 .dark-mode .about-section {
   background-color: #121212;
@@ -182,13 +316,41 @@
 }
 
 .dark-mode .exp-card {
-  background-color: #2a2a2a;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #1a202c ;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
   color: #e0e0e0;
 }
 
 .dark-mode .exp-card:hover {
   background-color: #333;
+}
+
+.dark-mode .experience-section {
+  background-color: #1a202c ;
+  color: #e0e0e0;
+}
+
+.dark-mode .experience-item {
+  background-color: #1a202c ;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .experience-item:hover {
+  background-color: #2a2a2a;
+}
+
+.dark-mode .certificates-section {
+  background-color: #1a202c   ;
+  color: #e0e0e0;
+}
+
+.dark-mode .certificate-item {
+  background-color: #1a202c ;
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .certificate-item:hover {
+  background-color: #2a2a2a;
 }
 
 /* Responsive Styles */
@@ -211,6 +373,18 @@
     flex-direction: column;
     gap: 10px;
   }
+
+  .profile-image {
+    max-height: 300px;
+  }
+
+  .profile-info {
+    padding: 15px;
+  }
+
+  .profile-info h3 {
+    font-size: 1.3rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -224,7 +398,7 @@
   }
 
   .profile-image {
-    height: 200px;
+    max-height: 250px;
   }
 
   .exp-number {
@@ -234,6 +408,30 @@
   .about-content {
     gap: 10px;
   }
+
+  .profile-info {
+    padding: 12px;
+  }
+
+  .profile-info h3 {
+    font-size: 1.2rem;
+  }
+
+  .experience-section, .certificates-section {
+    padding: 40px 0;
+  }
+
+  .experiences-list {
+    gap: 20px;
+  }
+
+  .experience-item, .certificate-item {
+    padding: 15px;
+  }
+
+  .certificates-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
@@ -242,7 +440,7 @@
   }
 
   .profile-image {
-    height: 120px;
+    max-height: 200px;
   }
 
   .exp-number {
@@ -255,5 +453,25 @@
 
   .about-container {
     padding: 0 0.5rem;
+  }
+
+  .profile-info {
+    padding: 10px;
+  }
+
+  .profile-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .experience-section, .certificates-section {
+    padding: 30px 0;
+  }
+
+  .experience-item, .certificate-item {
+    padding: 12px;
+  }
+
+  .experience-item h3, .certificate-item h3 {
+    font-size: 1.1rem;
   }
 }

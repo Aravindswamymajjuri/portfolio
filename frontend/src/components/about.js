@@ -1,6 +1,7 @@
 // About.js
 import React from 'react';
 import './about.css';
+import profileImage from '../components/portfolio.jpg'; 
 
 const About = ({ darkMode }) => {
   return (
@@ -12,8 +13,8 @@ const About = ({ darkMode }) => {
           <div className="profile-card">
             <div className="profile-image-container">
               <img 
-                src="/path-to-your-image.jpg" 
-                alt="Profile" 
+                src={profileImage} 
+                alt="Aravind Swamy Majjuri Profile" 
                 className="profile-image"
               />
               <div className="image-overlay">
@@ -28,7 +29,7 @@ const About = ({ darkMode }) => {
                     <i className="fab fa-github"></i>
                   </a>
                   <a 
-                    href="https://linkedin.com/in/yourusername" 
+                    href="https://linkedin.com/in/aravind-swamy-majjuri" 
                     className="social-link"
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -37,47 +38,48 @@ const About = ({ darkMode }) => {
                     <i className="fab fa-linkedin"></i>
                   </a>
                   <a 
-                    href="https://twitter.com/yourusername" 
+                    href="mailto:aravindswamymajjuri143@gmail.com" 
                     className="social-link"
                     target="_blank" 
                     rel="noopener noreferrer"
-                    aria-label="Twitter Profile"
+                    aria-label="Email"
                   >
-                    <i className="fab fa-twitter"></i>
+                    <i className="fas fa-envelope"></i>
                   </a>
                 </div>
               </div>
-            </div>
-            
-            <div className="profile-info">
-              <h3>John Doe</h3>
-              <p className="title">Full Stack Developer</p>
-              <p className="location">
-                <i className="fas fa-map-marker-alt"></i> New York, USA
-              </p>
+              
+              <div className="profile-info">
+                <h3>Aravind Swamy Majjuri</h3>
+                <p className="title">AI & Data Science Student | Full Stack Developer</p>
+                <p className="location">
+                  <i className="fas fa-map-marker-alt"></i> Kakinada, Andhra Pradesh, India
+                </p>
+              </div>
             </div>
           </div>
 
           <div className="about-text">
             <div className="text-content">
               <p className="bio">
-                I'm a passionate Full Stack Developer with 5 years of experience 
-                in building web applications. I love turning complex problems into 
-                simple, beautiful and intuitive solutions.
+                I'm an AI & Data Science undergraduate passionate about building intelligent web applications. 
+                With hands-on experience in Machine Learning, MERN stack development, and REST APIs, I love 
+                turning complex problems into elegant, scalable solutions. I've completed 5 technical internships 
+                and actively contribute to open-source projects.
               </p>
               
               <div className="experience-cards">
                 <div className="exp-card">
-                  <span className="exp-number">5+</span>
-                  <span className="exp-label">Years Experience</span>
+                  <span className="exp-number">5</span>
+                  <span className="exp-label">Internships</span>
                 </div>
                 <div className="exp-card">
-                  <span className="exp-number">50+</span>
-                  <span className="exp-label">Projects Completed</span>
+                  <span className="exp-number">10+</span>
+                  <span className="exp-label">Projects</span>
                 </div>
                 <div className="exp-card">
-                  <span className="exp-number">30+</span>
-                  <span className="exp-label">Happy Clients</span>
+                  <span className="exp-number">92%</span>
+                  <span className="exp-label">ML Accuracy</span>
                 </div>
               </div>
             </div>
