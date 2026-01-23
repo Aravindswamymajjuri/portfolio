@@ -7,9 +7,9 @@ const Footer = ({ darkMode }) => {
   
   const socialLinks = [
     { Icon: Github, href: "https://github.com/Aravindswamymajjuri", label: "GitHub" },
-    { Icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { Icon: Linkedin, href: "https://www.linkedin.com/in/aravind-swamy-majjuri-964176305?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", label: "LinkedIn" },
     { Icon: Mail, href: "mailto:aravindswamymajjuri143@gmail.com", label: "Email" },
-    { Icon: Instagram, href: "https://instagram.com", label: "Instagram" }
+    { Icon: Instagram, href: "https://www.instagram.com/crush___on___u/", label: "Instagram" }
   ];
 
   return (
