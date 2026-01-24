@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, Linkedin, Mail, Instagram, Heart, ArrowUp } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, ArrowUp } from 'lucide-react';
 import './footer.css';
 
 const Footer = ({ darkMode }) => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Award, Star, Trophy, CheckCircle } from 'lucide-react';
+import { Award, Star, Trophy } from 'lucide-react';
 
 const Certificates = ({ darkMode }) => {
   const [ref, inView] = useInView({

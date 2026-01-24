@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram, Download, ChevronDown } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, Download } from 'lucide-react';
 import './hero.css';
 
 const RESUME_PATH = 'https://drive.google.com/file/d/13OUDa-qlQMDuCpoJSVb71VUF0FpDYLci/view?usp=sharing';
