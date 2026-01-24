@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, Instagram, Download } from 'lucide-react';
+import { Github, Linkedin, Mail, Instagram, ViewIcon } from 'lucide-react';
 import './hero.css';
 
 const RESUME_PATH = 'https://drive.google.com/file/d/13OUDa-qlQMDuCpoJSVb71VUF0FpDYLci/view?usp=sharing';
@@ -73,19 +73,7 @@ const Hero = ({ darkMode }) => {
     }
   };
 
-  const socialVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    visible: (i) => ({
-      opacity: 1,
-      scale: 1,
-      transition: {
-        delay: 0.8 + i * 0.1,
-        type: "spring",
-        stiffness: 200,
-        damping: 10
-      }
-    })
-  };
+ 
 
   const floatAnimation = {
     y: [-10, 10, -10],
@@ -172,7 +160,6 @@ const Hero = ({ darkMode }) => {
               className="social-icon-link"
               aria-label={label}
               custom={index}
-              variants={socialVariants}
               whileHover={{ 
                 scale: 1.2, 
                 y: -5,
@@ -203,8 +190,8 @@ const Hero = ({ darkMode }) => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            <Download size={20} />
-            <span>Download Resume</span>
+            <ViewIcon size={20} />
+            <span>View Resume</span>
           </motion.a>
           
           <motion.button 
@@ -226,7 +213,7 @@ const Hero = ({ darkMode }) => {
           animate={floatAnimation}
           onClick={scrollToAbout}
         >
-          {/* <ChevronDown size={32} /> */}
+          
         </motion.div>
       </motion.div>
     </div>

@@ -50,7 +50,6 @@ const ProjectCard = ({ project, index }) => {
             initial={{ y: 20, opacity: 0 }}
             whileHover={{ y: 0, opacity: 1 }}
           >
-            <span className="view-project">View Project <ArrowRight size={16} /></span>
           </motion.div>
         </motion.div>
       </div>
@@ -129,37 +128,20 @@ const Projects = ({ darkMode }) => {
 
   const projects = [
     {
-      title: "ClassLog - AI Classroom Assistant",
-      description: "AI-powered classroom assistant using Computer Vision, NLP, and OpenCV for student engagement analysis with real-time audio processing and generative AI integration.",
-      image: "/project1.jpg",
-      tags: ["Python", "OpenCV", "Flask", "Transformers", "Google AI", "Bootstrap"],
-      demo: "https://demo.com",
-      github: "https://github.com/Aravindswamymajjuri"
-    },
-    {
-      title: "MERN Full Stack Application",
+      title: "Note Application",
       description: "Full-stack web application with JWT authentication, secure CRUD operations, REST APIs, and WebSocket-based real-time features built using Agile methodology.",
-      image: "/project2.jpg",
+      image: "/noteapp.jpeg",
       tags: ["React", "Node.js", "MongoDB", "Express", "JWT", "WebSocket"],
-      demo: "https://demo.com",
-      github: "https://github.com/Aravindswamymajjuri"
+      demo: "https://note-application-u2a5.onrender.com/login",
+      github: "https://github.com/Aravindswamymajjuri/Khub_note_app_application"
     },
     {
       title: "Sentiment Analysis ML Model",
-      description: "Machine Learning model for sentiment analysis achieving 92% accuracy using TF-IDF vectorization and RandomForest classifier with production-ready ML pipeline.",
-      image: "/project3.jpg",
+      description: "This project focuses on building a Sentiment Analysis system that automatically identifies and classifies user opinions expressed in textual data as positive, negative, or neutral. The system analyzes large volumes of text such as reviews, feedback, or social media comments to understand public sentiment and extract meaningful insights.",
+      image: "/sentiment.jpeg",
       tags: ["Python", "Scikit-learn", "TF-IDF", "RandomForest", "NLP"],
-      demo: "https://demo.com",
-      github: "https://github.com/Aravindswamymajjuri"
+      github: "https://github.com/Aravindswamymajjuri/Sentiment_Analysis"
     },
-    {
-      title: "Portfolio Website",
-      description: "Modern, responsive portfolio website built with React featuring dark/light mode, smooth animations, and mobile-first design approach.",
-      image: "/project4.jpg",
-      tags: ["React", "CSS3", "Framer Motion", "Responsive Design"],
-      demo: "https://demo.com",
-      github: "https://github.com/Aravindswamymajjuri"
-    }
   ];
 
   return (
