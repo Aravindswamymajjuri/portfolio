@@ -35,18 +35,7 @@ const Experience = ({ darkMode }) => {
       ],
       icon: "💻"
     },
-    {
-      role: "Summer of AI Intern",
-      company: "Swecha Telangana",
-      period: "May 2024 – June 2024",
-      description: "Built sentiment analysis ML model achieving 92% accuracy with TF-IDF + RandomForest.",
-      highlights: [
-        "Handled preprocessing and feature engineering",
-        "Performed model tuning and evaluation",
-        "Deployed production-ready ML pipeline"
-      ],
-      icon: "🤖"
-    }
+   
   ];
 
   const containerVariants = {
