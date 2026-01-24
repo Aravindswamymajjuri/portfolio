@@ -178,6 +178,7 @@ const Contact = ({ darkMode }) => {
         <motion.h2 className="contact-title" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
           Get In Touch
         </motion.h2>
+        
 
         <div className="contact-grid">
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="contact-info-container">

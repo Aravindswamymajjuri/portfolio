@@ -95,7 +95,7 @@ export default function Skills({ darkMode }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Skills & Expertise
+          <span className="title-decoration">Skills</span> & Expertise
         </motion.h2>
 
         <motion.div 
