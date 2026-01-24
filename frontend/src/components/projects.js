@@ -130,7 +130,7 @@ const Projects = ({ darkMode }) => {
     {
       title: "Note Application",
       description: "Full-stack web application with JWT authentication, secure CRUD operations, REST APIs, and WebSocket-based real-time features built using Agile methodology.",
-      image: "/noteapp.jpeg",
+      image: `${process.env.PUBLIC_URL}/noteapp.jpeg`,
       tags: ["React", "Node.js", "MongoDB", "Express", "JWT", "WebSocket"],
       demo: "https://note-application-u2a5.onrender.com/login",
       github: "https://github.com/Aravindswamymajjuri/Khub_note_app_application"
@@ -138,7 +138,7 @@ const Projects = ({ darkMode }) => {
     {
       title: "Sentiment Analysis ML Model",
       description: "This project focuses on building a Sentiment Analysis system that automatically identifies and classifies user opinions expressed in textual data as positive, negative, or neutral. The system analyzes large volumes of text such as reviews, feedback, or social media comments to understand public sentiment and extract meaningful insights.",
-      image: "/sentiment.jpeg",
+      image: `${process.env.PUBLIC_URL}/sentiment.jpeg`,
       tags: ["Python", "Scikit-learn", "TF-IDF", "RandomForest", "NLP"],
       github: "https://github.com/Aravindswamymajjuri/Sentiment_Analysis"
     },
