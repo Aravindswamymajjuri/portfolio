@@ -20,6 +20,9 @@
     { "src": "/musicapp.jpeg", "dest": "/musicapp.jpeg" },
     { "src": "/devstack.png", "dest": "/devstack.png" },
     { "src": "/eye.jpeg", "dest": "/eye.jpeg" },
+    { "src": "/fmml.jpg", "dest": "/fmml.jpg" },
+    { "src": "/winter.jpg", "dest": "/winter.jpg" },
+    { "src": "/edyst.jpg", "dest": "/edyst.jpg" },
     { "src": "/Aravind.pdf", "dest": "/Aravind.pdf" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]

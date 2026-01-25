@@ -13,15 +13,15 @@ const ProjectCarousel = ({ darkMode = true }) => {
     {
       title: "DevStack - Academic Platform",
       description: "MERN-based academic management platform with integrated hackathon module. Features role-based dashboards, project management, and automated certificates.",
-      image: `${process.env.PUBLIC_URL}/devstack.png`,
+      image: "/devstack.png",
       tags: ["React.js", "Node.js", "MongoDB", "REST APIs"],
-      demo: "https://note-application-u2a5.onrender.com/login",
-      github: "https://github.com/Aravindswamymajjuri/DevStack"
+      demo: "https://dev-orbit-1.vercel.app/",
+      github: "https://github.com/Aravindswamymajjuri/Dev-Orbit"
     },
     {
       title: "Note Application",
       description: "Full-stack web application with JWT authentication, secure CRUD operations, REST APIs, and WebSocket-based real-time features.",
-      image: `${process.env.PUBLIC_URL}/noteapp.jpeg`,
+      image: "/noteapp.jpeg",
       tags: ["React", "Node.js", "MongoDB", "JWT", "WebSocket"],
       demo: "https://note-application-u2a5.onrender.com/login",
       github: "https://github.com/Aravindswamymajjuri/Khub_note_app_application"
@@ -29,7 +29,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
     {
       title: "Sentiment Analysis ML",
       description: "Sentiment Analysis system that classifies user opinions as positive, negative, or neutral using machine learning and NLP techniques.",
-      image: `${process.env.PUBLIC_URL}/sentiment.jpeg`,
+      image: "/sentiment.jpeg",
       tags: ["Python", "Scikit-learn", "TF-IDF", "NLP"],
       github: "https://github.com/Aravindswamymajjuri/Sentiment_Analysis"
     }

@@ -79,7 +79,7 @@ const Certificates = ({ darkMode }) => {
       grade: "Grade A",
       icon: Trophy,
       color: "#667eea",
-      image: `${process.env.PUBLIC_URL}/fmml.jpg`
+      image: "/fmml.jpg"
     },
     {
       title: "Winter Internship Certificate  RCTS",
@@ -87,7 +87,7 @@ const Certificates = ({ darkMode }) => {
       grade: "12/2024-01/2025",
       icon: Award,
       color: "#764ba2",
-      image: `${process.env.PUBLIC_URL}/winter.jpg`
+      image: "/winter.jpg"
     },
     {
       title: "Python Advanced Certification EDYST",
@@ -95,7 +95,7 @@ const Certificates = ({ darkMode }) => {
       grade: "2022-2023",
       icon: Star,
       color: "#f093fb",
-      image: `${process.env.PUBLIC_URL}/edyst.jpg`
+      image: "/edyst.jpg"
     }
   ];
 
@@ -182,7 +182,7 @@ const Certificates = ({ darkMode }) => {
             className="carousel-nav-btn carousel-next"
             onClick={handleCarouselNext}
             whileHover={{ scale: 1.1, x: 5 }}
-            whileTap={{ scale: 0.9 }}
+            // whileTap={{ scale: 0.9 }}
           >
             <ChevronRight size={28} />
           </motion.button>

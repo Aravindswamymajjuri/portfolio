@@ -548,8 +548,6 @@
 .carousel-nav-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
   border: 2px solid rgba(102, 126, 234, 0.5);
   color: white;
