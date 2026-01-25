@@ -208,14 +208,7 @@
   opacity: 1;
 }
 
-/* Light/Dark Mode Backgrounds */
-/* .light-mode.hero-gradient {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
-} */
 
-/* .dark-mode.hero-gradient {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
-} */
 
 .light-mode .icon-color {
   color: #4b5563;
@@ -284,7 +277,7 @@
     font-size: 1rem;
   }
   .greeting-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
   .social-icons-container {
     gap: 0.75rem;
@@ -305,6 +298,6 @@
 
 @media (max-width:374px) {
   .name-highlight{
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }

@@ -94,6 +94,7 @@ const Contact = ({ darkMode }) => {
     // Show loading toast
     const loadingToast = toast.loading("Sending message...", {
       position: "top-right",
+      style: { top: "80px" },
       theme: darkMode ? "dark" : "light",
     });
 
@@ -101,7 +102,7 @@ const Contact = ({ darkMode }) => {
 
     try {
       await emailjs.send(
-        "Aravind_123", 
+        "service_mv8i6gd", 
         "template_nlkm7ki", 
         templateParams, 
         "Cz9Kl_YW7MdaMFjMt"
@@ -113,6 +114,7 @@ const Contact = ({ darkMode }) => {
       // Show success toast
       toast.success("Message sent successfully! I'll get back to you soon.", {
         position: "top-right",
+        style: { top: "80px" },
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

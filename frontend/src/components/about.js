@@ -79,73 +79,57 @@ const About = ({ darkMode }) => {
         
         <div className="about-content">
           <motion.div 
-            className="profile-card"
+            className="profile-card-wrapper"
             variants={imageVariants}
-            whileHover={{ scale: 1.02 }}
           >
-            <div className="profile-image-container">
-              <motion.img 
-                src={profileImage} 
-                alt="Aravind Swamy Majjuri Profile" 
-                className="profile-image"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-              />
-              <motion.div 
-                className="image-overlay"
-                initial={{ opacity: 0 }}
-                whileHover={{ opacity: 1 }}
-              >
-                {/* <div className="social-links">
-                  <motion.a 
-                    href="https://github.com/Aravindswamymajjuri" 
-                    className="social-link"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Profile"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
+            <motion.div 
+              className="profile-card-modern"
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.3 }}
+            >
+              {/* Image container */}
+              <div className="profile-image-wrapper">
+                <motion.div 
+                  className="profile-image-container-modern"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <img 
+                    src={profileImage} 
+                    alt="Aravind Swamy Majjuri Profile" 
+                    className="profile-image-modern"
+                  />
+                  
+                  {/* Overlay gradient */}
+                  <motion.div 
+                    className="profile-overlay-gradient"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                  >
-                    <i className="fab fa-github"></i>
-                  </motion.a>
-                  <motion.a 
-                    href="https://linkedin.com/in/aravind-swamy-majjuri" 
-                    className="social-link"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn Profile"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <i className="fab fa-linkedin"></i>
-                  </motion.a>
-                  <motion.a 
-                    href="mailto:aravindswamymajjuri143@gmail.com" 
-                    className="social-link"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label="Email"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <i className="fas fa-envelope"></i>
-                  </motion.a>
-                </div> */}
-              </motion.div>
+                  />
+                </motion.div>
               
+                
+              </div>
+              
+              {/* Profile info card */}
               <motion.div 
-                className="profile-info"
+                className="profile-info-modern"
                 initial={{ y: 20, opacity: 0 }}
                 animate={inView ? { y: 0, opacity: 1 } : {}}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
-                <h3>Aravind Swamy Majjuri</h3>
-                <p className="title">AI & Data Science Student | Full Stack Developer</p>
-                <p className="location">
-                  <i className="fas fa-map-marker-alt"></i> Kakinada, Andhra Pradesh, India
-                </p>
+                <h3 className="profile-name">Aravind Swamy Majjuri</h3>
+                <p className="profile-title">AI & Data Science Student</p>
+                <p className="profile-subtitle">Full Stack Developer</p>
+                <div className="profile-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                  </svg>
+                  <span>Kakinada, Andhra Pradesh</span>
+                </div>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div 

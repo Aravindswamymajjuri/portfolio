@@ -1,22 +1,13 @@
 .footer {
-  background: linear-gradient(135deg, var(--card-background) 0%, rgba(96, 165, 250, 0.05) 100%);
+  background: #ffff;
   padding: 3rem 0 1.5rem 0;
-  margin-top: 4rem;
-  border-top: 1px solid rgba(96, 165, 250, 0.2);
   position: relative;
   overflow: hidden;
 }
 
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #60a5fa, #a78bfa, transparent);
+.dark-mode .footer {
+  background: #0f172a;
 }
-
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -32,7 +23,6 @@
   position: absolute;
   bottom: 0px;
   right: 10px;
-  transform: translateX(-50%);
   width: 50px;
   height: 50px;
   border-radius: 50%;

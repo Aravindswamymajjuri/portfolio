@@ -203,7 +203,7 @@ const Hero = ({ darkMode }) => {
             }}
             whileTap={{ scale: 0.95 }}
           >
-            Learn More
+            View More
           </motion.button>
         </motion.div>
 

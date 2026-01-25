@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Briefcase, Calendar, ChevronRight } from 'lucide-react';
+import { Briefcase, Calendar, ChevronRight, ChevronDown, ChevronUp } from 'lucide-react';
 import './about.css';
 
 const Experience = ({ darkMode }) => {
@@ -9,6 +9,8 @@ const Experience = ({ darkMode }) => {
     triggerOnce: true,
     threshold: 0.1
   });
+
+  const [showAll, setShowAll] = useState(false);
 
   const experiences = [
     {
@@ -35,6 +37,20 @@ const Experience = ({ darkMode }) => {
       ],
       icon: "💻"
     },
+    {
+      role: "MERN Stack Developer Intern",
+      company: "KHUB (RCTS Lab, IIIT Hyderabad)",
+      period: "May 2024 – Present",
+      description: "Built and scaled role-based web platforms for academic and innovation management. Started as Junior Developer on DevOrbit and progressed to Team Lead for DevStack, a hackathon management platform.",
+      highlights: [
+        "Developed core features for project, team, task, and resource management with role-based dashboards",
+        "Built frontend-backend integrations and implemented database operations with MongoDB",
+        "Integrated GitHub-based project tracking and automated certificate generation",
+        "Led team to design end-to-end hackathon workflow and planned system architecture",
+        "Reviewed code, assigned tasks, and mentored team members"
+      ],
+      icon: "🎯"
+    }
    
   ];
 
@@ -70,6 +86,9 @@ const Experience = ({ darkMode }) => {
     }
   };
 
+  // Display only first 4 experiences or all based on showAll state
+  const displayedExperiences = showAll ? experiences : experiences.slice(0, 3);
+
   return (
     <section id="experience" className={`experience-section ${darkMode ? 'dark-mode' : 'light-mode'}`}>
       <div className="experience-container">
@@ -89,7 +108,7 @@ const Experience = ({ darkMode }) => {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
         >
-          {experiences.map((exp, index) => (
+          {displayedExperiences.map((exp, index) => (
             <motion.div 
               key={index} 
               className="experience-item timeline-item"
@@ -146,6 +165,32 @@ const Experience = ({ darkMode }) => {
             </motion.div>
           ))}
         </motion.div>
+
+        {experiences.length > 3 && (
+          <motion.div 
+            className="view-more-container"
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5 }}
+          >
+            <button 
+              className="view-more-btn"
+              onClick={() => setShowAll(!showAll)}
+            >
+              {showAll ? (
+                <>
+                  <span>View Less</span>
+                  <ChevronUp size={20} />
+                </>
+              ) : (
+                <>
+                  <span>View More</span>
+                  <ChevronDown size={20} />
+                </>
+              )}
+            </button>
+          </motion.div>
+        )}
       </div>
     </section>
   );

@@ -92,15 +92,6 @@ const Footer = ({ darkMode }) => {
         </motion.div>
 
         <motion.div className="copyright" variants={itemVariants}>
-          {/* <p>
-            Made with <motion.span 
-              className="heart"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <Heart size={14} fill="#ef4444" color="#ef4444" />
-            </motion.span> by Aravind Swamy Majjuri
-          </p> */}
           <p className="year">&copy; {currentYear} All rights reserved.</p>
         </motion.div>
       </motion.div>
