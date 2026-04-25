@@ -15,7 +15,7 @@ const Experience = ({ darkMode }) => {
   const experiences = [
     {
       role: "Software Development Intern",
-      company: "Teach for India (ClassLog), IIIT Hyderabad",
+      company: "Teach for India (ClassLog), IIIT Hyderabad(RCTS)",
       period: "Dec 2024 – Jan 2025",
       description: "Developed AI-powered classroom assistant using Computer Vision, NLP, and OpenCV for student engagement analysis.",
       highlights: [
@@ -26,14 +26,14 @@ const Experience = ({ darkMode }) => {
       icon: "🚀"
     },
     {
-      role: "Full Stack Intern",
-      company: "EduSkill (AICTE)",
-      period: "Oct 2024 – Dec 2024",
-      description: "Built MERN applications with JWT authentication and secure CRUD operations.",
+      role: "Developer Intern",
+      company: "Viswam.AI",
+      period: "Jan 2026 – Apr 2026",
+      description: "Built full-stack features with React, FastAPI, and PostgreSQL for healthcare workflows.",
       highlights: [
-        "Developed REST APIs and WebSocket-based real-time features",
-        "Collaborated with 5-member team in Agile workflow",
-        "Managed Git branching and pull requests"
+        "Developed 10+ REST APIs using FastAPI for EHRS, improving healthcare data processing and analytics",
+        "Built full-stack features with React, FastAPI, PostgreSQL, contributing to 5+ modules for dashboards, workflows, and scheduling",
+        "Led as Product Owner, delivering 4+ production merge requests while coordinating team tasks and improving performance"
       ],
       icon: "💻"
     },

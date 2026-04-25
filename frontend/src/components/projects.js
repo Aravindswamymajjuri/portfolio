@@ -11,27 +11,28 @@ const ProjectCarousel = ({ darkMode = true }) => {
 
   const projects = [
     {
-      title: "DevStack - Academic Platform",
-      description: "MERN-based academic management platform with integrated hackathon module. Features role-based dashboards, project management, and automated certificates.",
+      title: "Dev-Stack — Full Stack Collaboration Platform",
+      description: "Built a full-stack academic and hackathon management platform using React, Node.js, Express, and MongoDB. Implemented role-based dashboards for students, mentors, and admins with secure authentication.",
       image: "/devstack.png",
-      tags: ["React.js", "Node.js", "MongoDB", "REST APIs"],
+      tags: ["React", "Node.js", "Express", "MongoDB", "Authentication"],
       demo: "https://dev-orbit-1.vercel.app/",
       github: "https://github.com/Aravindswamymajjuri/Dev-Orbit"
     },
     {
-      title: "Note Application",
-      description: "Full-stack web application with JWT authentication, secure CRUD operations, REST APIs, and WebSocket-based real-time features.",
-      image: "/noteapp.jpeg",
-      tags: ["React", "Node.js", "MongoDB", "JWT", "WebSocket"],
-      demo: "https://note-application-u2a5.onrender.com/login",
-      github: "https://github.com/Aravindswamymajjuri/Khub_note_app_application"
+      title: "Music Streaming & Real-Time Collaboration App",
+      description: "Built a full-stack music streaming platform with JWT authentication, song upload and streaming via MongoDB GridFS. Implemented real-time collaboration using Socket.io shared rooms, live updates, and a responsive React.",
+      image: "/mussicapp.jpeg",
+      tags: ["React", "MongoDB", "JWT", "Socket.io", "GridFS"],
+      demo: "https://musicapp-red.vercel.app/login",
+      github: "https://github.com/Aravindswamymajjuri/Musicapp"
     },
     {
-      title: "Sentiment Analysis ML",
-      description: "Sentiment Analysis system that classifies user opinions as positive, negative, or neutral using machine learning and NLP techniques.",
-      image: "/sentiment.jpeg",
-      tags: ["Python", "Scikit-learn", "TF-IDF", "NLP"],
-      github: "https://github.com/Aravindswamymajjuri/Sentiment_Analysis"
+      title: "Alarm — Full Stack PWA",
+      description: "Built a full-stack PWA for task scheduling with authentication, CRUD operations, and recurring job scheduling. Designed a responsive experience for managing tasks, reminders, and daily workflows.",
+      image: "/task.jpeg",
+      tags: ["PWA", "React", "Node.js", "Authentication", "CRUD"],
+      demo: "https://tasknotification.vercel.app/login",
+      github: "https://github.com/Aravindswamymajjuri/Alaram"
     }
   ];
 
@@ -155,12 +156,14 @@ const ProjectCarousel = ({ darkMode = true }) => {
                       <div className={`card-glow ${isActive ? 'active-glow' : ''}`}></div>
                     </div>
                     <div className="card-content">
-                      <h3 className="card-title">{project.title}</h3>
-                      <p className="card-description">{project.description}</p>
-                      <div className="card-tags">
-                        {project.tags.map((tag, idx) => (
-                          <span key={idx} className="tag">{tag}</span>
-                        ))}
+                      <div className="card-main">
+                        <h3 className="card-title">{project.title}</h3>
+                        <p className="card-description">{project.description}</p>
+                        <div className="card-tags">
+                          {project.tags.map((tag, idx) => (
+                            <span key={idx} className="tag">{tag}</span>
+                          ))}
+                        </div>
                       </div>
                       <div className="card-links">
                         {project.demo && (
@@ -504,6 +507,8 @@ const ProjectCarousel = ({ darkMode = true }) => {
         .card-inner {
           width: 100%;
           height: 100%;
+          display: flex;
+          flex-direction: column;
           background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
           border-radius: 20px;
           overflow: hidden;
@@ -569,12 +574,26 @@ const ProjectCarousel = ({ darkMode = true }) => {
         }
 
         .card-content {
-          padding: 1rem;
+          position: relative;
+          padding: 1rem 1rem 0.75rem;
           display: flex;
           flex-direction: column;
-          gap: 0.5rem;
-          height: 290px;
+          gap: 0.75rem;
+          flex: 1;
+          min-height: 0;
+          overflow: hidden;
+          box-sizing: border-box;
+        }
+
+        .card-main {
+          flex: 1;
+          min-height: 0;
+          max-height: calc(100% - 4.5rem);
           overflow-y: auto;
+          display: flex;
+          flex-direction: column;
+          gap: 0.75rem;
+          padding-right: 0.25rem;
         }
 
         .card-title {
@@ -593,14 +612,29 @@ const ProjectCarousel = ({ darkMode = true }) => {
           font-size: 0.85rem;
           color: #475569;
           line-height: 1.4;
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
+          overflow: visible;
         }
 
         .dark-mode .card-description {
           color: #cbd5e1;
+        }
+
+        .card-main::-webkit-scrollbar {
+          width: 4px;
+        }
+
+        .card-main::-webkit-scrollbar-track {
+          background: rgba(148, 163, 184, 0.10);
+          border-radius: 9999px;
+        }
+
+        .card-main::-webkit-scrollbar-thumb {
+          background: rgba(96, 165, 250, 0.55);
+          border-radius: 9999px;
+        }
+
+        .dark-mode .card-main::-webkit-scrollbar-thumb {
+          background: rgba(96, 165, 250, 0.75);
         }
 
         .card-tags {
@@ -638,8 +672,10 @@ const ProjectCarousel = ({ darkMode = true }) => {
 
         .card-links {
           display: flex;
+          flex-wrap: wrap;
           gap: 0.6rem;
-          margin-top: 0.4rem;
+          // margin-top: auto;
+          // padding-top: 0.25rem;
         }
 
         .card-link {
@@ -647,13 +683,13 @@ const ProjectCarousel = ({ darkMode = true }) => {
           align-items: center;
           gap: 0.4rem;
           padding: 0.55rem 1rem;
-          background: rgba(96, 165, 250, 0.1);
-          border: 1px solid rgba(96, 165, 250, 0.4);
+          background: rgba(96, 165, 250, 0.22);
+          border: 1px solid rgba(96, 165, 250, 0.7);
           border-radius: 10px;
-          color: #2563eb;
+          color: #1d4ed8;
           text-decoration: none;
           font-weight: 600;
-          font-size: 0.85rem;
+          font-size: 0.88rem;
           transition: all 0.3s ease;
         }
 
