@@ -456,8 +456,8 @@ const ProjectCarousel = ({ darkMode = true }) => {
         .carousel-container {
           position: relative;
           width: 100%;
-          max-width: 1200px;
-          height: 550px;
+          max-width: 1100px;
+          height: 500px;
           margin: 0 auto;
           cursor: grab;
           user-select: none;
@@ -489,15 +489,15 @@ const ProjectCarousel = ({ darkMode = true }) => {
 
         .project-card-3d {
           position: absolute;
-          width: 350px;
-          height: 450px;
+          width: 320px;
+          height: 420px;
           left: 50%;
           top: 50%;
-          margin-left: -175px;
-          margin-top: -225px;
+          margin-left: -160px;
+          margin-top: -210px;
           transform-style: preserve-3d;
           transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-          backface-visibility: visible;
+          backface-visibility: hidden;
         }
 
         .project-card-3d.active {
@@ -515,6 +515,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
           border: 1px solid rgba(96, 165, 250, 0.3);
           box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
           transition: all 0.3s ease;
+          backface-visibility: hidden;
         }
 
         .dark-mode .card-inner {
@@ -534,17 +535,16 @@ const ProjectCarousel = ({ darkMode = true }) => {
         .card-image {
           position: relative;
           width: 100%;
-          height: 180px;
+          height: 160px;
           overflow: hidden;
-          
         }
 
         .card-image img {
+          display: block;
           width: 100%;
           height: 100%;
           object-fit: cover;
           transition: transform 0.5s ease;
-          
         }
 
        
@@ -575,10 +575,10 @@ const ProjectCarousel = ({ darkMode = true }) => {
 
         .card-content {
           position: relative;
-          padding: 1rem 1rem 0.75rem;
+          padding: 0.9rem 0.9rem 0.7rem;
           display: flex;
           flex-direction: column;
-          gap: 0.75rem;
+          gap: 0.6rem;
           flex: 1;
           min-height: 0;
           overflow: hidden;
@@ -597,7 +597,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
         }
 
         .card-title {
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           font-weight: 700;
           color: #0f172a;
           line-height: 1.2;
@@ -609,9 +609,9 @@ const ProjectCarousel = ({ darkMode = true }) => {
         }
 
         .card-description {
-          font-size: 0.85rem;
+          font-size: 0.8rem;
           color: #475569;
-          line-height: 1.4;
+          line-height: 1.5;
           overflow: visible;
         }
 
@@ -645,11 +645,11 @@ const ProjectCarousel = ({ darkMode = true }) => {
         }
 
         .tag {
-          padding: 0.28rem 0.7rem;
+          padding: 0.24rem 0.65rem;
           background: linear-gradient(135deg, rgba(96, 165, 250, 0.15) 0%, rgba(139, 92, 246, 0.15) 100%);
           border: 1px solid rgba(96, 165, 250, 0.4);
           border-radius: 20px;
-          font-size: 0.7rem;
+          font-size: 0.68rem;
           font-weight: 600;
           color: #2563eb;
           transition: all 0.3s ease;
@@ -682,14 +682,14 @@ const ProjectCarousel = ({ darkMode = true }) => {
           display: flex;
           align-items: center;
           gap: 0.4rem;
-          padding: 0.55rem 1rem;
+          padding: 0.45rem 0.85rem;
           background: rgba(96, 165, 250, 0.22);
           border: 1px solid rgba(96, 165, 250, 0.7);
           border-radius: 10px;
           color: #1d4ed8;
           text-decoration: none;
           font-weight: 600;
-          font-size: 0.88rem;
+          font-size: 0.82rem;
           transition: all 0.3s ease;
         }
 
