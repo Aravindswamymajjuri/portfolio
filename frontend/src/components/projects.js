@@ -555,7 +555,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.8) 100%);
+          // background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.8) 100%);
           opacity: 0;
           transition: opacity 0.3s ease;
         }
@@ -566,7 +566,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
 
         .card-glow.active-glow {
           opacity: 1;
-          background: linear-gradient(180deg, rgba(96, 165, 250, 0.15) 0%, rgba(255, 255, 255, 0.9) 100%);
+          // background: linear-gradient(180deg, rgba(96, 165, 250, 0.15) 0%, rgba(255, 255, 255, 0.9) 100%);
         }
 
         .dark-mode .card-glow.active-glow {
