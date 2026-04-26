@@ -21,7 +21,7 @@ const ProjectCarousel = ({ darkMode = true }) => {
     {
       title: "Music Streaming & Real-Time Collaboration App",
       description: "Built a full-stack music streaming platform with JWT authentication, song upload and streaming via MongoDB GridFS. Implemented real-time collaboration using Socket.io shared rooms, live updates, and a responsive React.",
-      image: "/mussicapp.jpeg",
+      image: "/app.jpeg",
       tags: ["React", "MongoDB", "JWT", "Socket.io", "GridFS"],
       demo: "https://musicapp-red.vercel.app/login",
       github: "https://github.com/Aravindswamymajjuri/Musicapp"
